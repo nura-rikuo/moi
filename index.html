@@ -6,13 +6,16 @@
 <title>Swarnav Baruah</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
   body {
     font-family: 'Inter', sans-serif;
     background: #0c0c0e;
+  }
+
+  .fade {
+    transition: opacity 0.5s ease;
   }
 
   .hover-shift {
@@ -22,28 +25,18 @@
   .hover-shift:hover {
     transform: translateX(4px);
   }
-
-  .line {
-    stroke-dasharray: 4;
-    animation: dash 5s linear infinite;
-  }
-
-  @keyframes dash {
-    to { stroke-dashoffset: -100; }
-  }
-
-  .node {
-    animation: pulse 4s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%,100% { opacity:0.6; }
-    50% { opacity:1; }
-  }
 </style>
 </head>
 
 <body class="text-neutral-200 max-w-3xl mx-auto px-10 py-24">
+
+<!-- HEADER -->
+<div class="flex justify-between items-center mb-20 text-sm text-neutral-500">
+  <div>swarnav.xyz</div>
+  <a href="/now.html" class="hover:text-neutral-300 transition">
+    Now
+  </a>
+</div>
 
 <!-- HERO -->
 <section class="mb-28">
@@ -56,59 +49,20 @@
     DevOps Engineer
   </p>
 
-  <p class="text-2xl font-medium mb-6 max-w-xl leading-snug">
+  <p class="text-2xl font-medium mb-6 max-w-xl">
     I keep complex systems boring.
   </p>
 
-  <p class="text-neutral-500 text-lg max-w-xl leading-relaxed">
+  <p id="rotating" class="text-neutral-500 text-lg fade max-w-xl">
+    Complexity is a liability.
+  </p>
+
+  <p class="text-neutral-500 text-lg mt-6 max-w-xl">
     I enjoy tinkering with Linux, Neovim, and AI —
     usually optimizing something that wasn’t broken.
   </p>
 
 </section>
-
-
-<!-- COOL ELEMENT — Subtle Topology -->
-<section class="mb-28">
-
-<svg width="320" height="160" viewBox="0 0 320 160" class="mx-auto">
-
-  <line x1="60" y1="80" x2="160" y2="40" stroke="#525252" stroke-width="1.5" class="line"/>
-  <line x1="160" y1="40" x2="260" y2="80" stroke="#525252" stroke-width="1.5" class="line"/>
-  <line x1="60" y1="80" x2="160" y2="120" stroke="#525252" stroke-width="1.5" class="line"/>
-  <line x1="160" y1="120" x2="260" y2="80" stroke="#525252" stroke-width="1.5" class="line"/>
-
-  <circle cx="60" cy="80" r="5" fill="#a3a3a3" class="node"/>
-  <circle cx="160" cy="40" r="5" fill="#a3a3a3" class="node"/>
-  <circle cx="160" cy="120" r="5" fill="#a3a3a3" class="node"/>
-  <circle cx="260" cy="80" r="5" fill="#a3a3a3" class="node"/>
-
-</svg>
-
-</section>
-
-
-<!-- ABOUT -->
-<section class="mb-28">
-
-  <h2 class="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-8">
-    About
-  </h2>
-
-  <p class="text-lg text-neutral-300 leading-relaxed mb-6">
-    I work on reliability, scalability, and production systems that should not fail under pressure.
-    Most of my time lives inside clusters, dashboards, and the kinds of problems
-    that only appear at scale.
-  </p>
-
-  <p class="text-neutral-400 text-lg">
-    I believe in boring production,
-    useful alerts,
-    and fixing root causes.
-  </p>
-
-</section>
-
 
 <!-- LOGS -->
 <section class="mb-28">
@@ -137,23 +91,35 @@
       </p>
     </div>
 
-    <div class="hover-shift">
-      <a href="#" class="text-lg font-medium">
-        Production Is a Psychological Test
-      </a>
-      <p class="text-neutral-500 text-sm mt-1">
-        Coming Soon
-      </p>
-    </div>
-
   </div>
 
 </section>
 
-
 <footer class="border-t border-neutral-800 pt-8 text-neutral-600 text-sm">
   Reliability, without the theatrics.
 </footer>
+
+<script>
+const lines = [
+  "Complexity is a liability.",
+  "Boring scales.",
+  "Hope is not a monitoring strategy.",
+  "Every system fails. Design accordingly.",
+  "Distributed systems are trust issues."
+];
+
+const el = document.getElementById("rotating");
+let index = 0;
+
+setInterval(() => {
+  el.style.opacity = 0;
+  setTimeout(() => {
+    index = (index + 1) % lines.length;
+    el.textContent = lines[index];
+    el.style.opacity = 1;
+  }, 300);
+}, 4000);
+</script>
 
 </body>
 </html>
