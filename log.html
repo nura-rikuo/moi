@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Log - Swarnav Baruah</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #0a0f14;
+    --panel: rgba(12, 21, 29, 0.78);
+    --panel-border: rgba(244, 196, 48, 0.12);
+    --text: #edf3f8;
+  }
+
+  body {
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(244, 196, 48, 0.12), transparent 30%),
+      radial-gradient(circle at 78% 18%, rgba(198, 93, 65, 0.14), transparent 24%),
+      linear-gradient(180deg, #12100d 0%, #171411 45%, #0f0d0b 100%);
+    min-height: 100vh;
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .glass {
+    background: rgba(12, 21, 29, 0.78);
+    border: 1px solid rgba(244, 196, 48, 0.12);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(16px);
+  }
+
+  .rule {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+</style>
+</head>
+
+<body>
+<main class="max-w-5xl mx-auto px-6 md:px-10 py-8 md:py-10">
+  <header class="flex items-center justify-between mb-12 md:mb-20">
+    <a href="/" class="mono text-sm tracking-[0.3em] uppercase text-neutral-300 hover:text-white transition">
+      swarnav.tech
+    </a>
+    <nav class="mono text-xs md:text-sm uppercase tracking-[0.24em] text-neutral-400">
+      <div class="flex items-center gap-4 md:gap-6">
+        <a href="/" class="hover:text-white transition">Home</a>
+        <a href="/now.html" class="hover:text-white transition">Now</a>
+        <a href="/log.html" class="text-white">Log</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="mb-12">
+    <p class="mono text-xs md:text-sm uppercase tracking-[0.3em] text-amber-200/70 mb-6">
+      Reading Log
+    </p>
+
+    <h1 class="text-4xl md:text-6xl font-bold tracking-[-0.05em] mb-6">
+      A small archive of links worth keeping.
+    </h1>
+
+    <p class="text-lg md:text-xl text-neutral-300 max-w-3xl leading-8">
+      This is where I will keep articles, essays, posts, and the occasional rabbit hole I want to revisit later.
+    </p>
+  </section>
+
+  <section class="space-y-8 border-t rule pt-10">
+    <article class="border-b rule pb-8">
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-500 mb-3">May 2026</p>
+      <div>
+        <a href="https://jxnl.github.io/blog/writing/2026/05/10/codex-maxxing/" class="inline-block text-2xl font-semibold tracking-[-0.03em] mb-2 hover:text-amber-200 transition">
+          Codex Maxxing
+        </a>
+        <p class="text-neutral-400 leading-7">
+          A note on getting more out of Codex and writing with sharper intent.
+        </p>
+      </div>
+    </article>
+
+    <article class="border-b rule pb-8">
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-500 mb-3">Cloudflare</p>
+      <div>
+        <a href="https://blog.cloudflare.com/workflows-v2/" class="inline-block text-2xl font-semibold tracking-[-0.03em] mb-2 hover:text-amber-200 transition">
+          Workflows v2
+        </a>
+        <p class="text-neutral-400 leading-7">
+          Cloudflare&apos;s update to its workflow system and how it is evolving.
+        </p>
+      </div>
+    </article>
+
+    <article class="border-b rule pb-8">
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-500 mb-3">X Post</p>
+      <div>
+        <a href="https://x.com/datavorous_/status/2054541796437582011?s=20" class="inline-block text-2xl font-semibold tracking-[-0.03em] mb-2 hover:text-amber-200 transition">
+          Oh &apos;taste&apos;, what dost thou hide?
+        </a>
+        <p class="text-neutral-400 leading-7">
+          A saved post from `@datavorous_`.
+        </p>
+      </div>
+    </article>
+
+    <article class="border-b rule pb-8">
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-500 mb-3">Coding Confessions</p>
+      <div>
+        <a href="https://blog.codingconfessions.com/p/virtual-memory" class="inline-block text-2xl font-semibold tracking-[-0.03em] mb-2 hover:text-amber-200 transition">
+          Virtual Memory
+        </a>
+        <p class="text-neutral-400 leading-7">
+          A deeper look at how virtual memory works under the hood.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <footer class="mono text-xs md:text-sm uppercase tracking-[0.24em] text-neutral-500 border-t border-white/10 pt-6 mt-10">
+    Add entries whenever something is worth saving.
+  </footer>
+</main>
+</body>
+</html>

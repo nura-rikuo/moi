@@ -6,106 +6,192 @@
 <title>Swarnav Baruah</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+  :root {
+    --bg: #0a0f14;
+    --panel: rgba(12, 21, 29, 0.78);
+    --panel-border: rgba(244, 196, 48, 0.12);
+    --text: #edf3f8;
+    --muted: #a9b2bd;
+  }
+
   body {
-    font-family: 'Inter', sans-serif;
-    background: #0c0c0e;
+    font-family: "Space Grotesk", sans-serif;
+    color: var(--text);
+    background:
+      radial-gradient(circle at top left, rgba(244, 196, 48, 0.12), transparent 30%),
+      radial-gradient(circle at 78% 18%, rgba(198, 93, 65, 0.14), transparent 24%),
+      linear-gradient(180deg, #12100d 0%, #171411 45%, #0f0d0b 100%);
+    min-height: 100vh;
+  }
+
+  .mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+
+  .glass {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.24);
+    backdrop-filter: blur(16px);
+  }
+
+  .rule {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .grid-fade {
+    background-image:
+      linear-gradient(rgba(146, 164, 181, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(146, 164, 181, 0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.8), transparent);
   }
 
   .fade {
-    transition: opacity 0.5s ease;
+    transition: opacity 0.4s ease;
   }
 
-  .hover-shift {
-    transition: transform 0.2s ease;
+  .rise {
+    animation: rise 0.8s ease both;
   }
 
-  .hover-shift:hover {
-    transform: translateX(4px);
+  .rise-delay {
+    animation: rise 0.8s ease 0.15s both;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
 </head>
 
-<body class="text-neutral-200 max-w-3xl mx-auto px-10 py-24">
+<body>
+<div class="fixed inset-0 pointer-events-none grid-fade opacity-60"></div>
 
-<!-- HEADER -->
-<div class="flex justify-between items-center mb-20 text-sm text-neutral-500">
-  <div>swarnav.xyz</div>
-  <a href="/now.html" class="hover:text-neutral-300 transition">
-    Now
-  </a>
-</div>
+<main class="max-w-5xl mx-auto px-6 md:px-10 py-8 md:py-10 relative">
+  <header class="flex items-center justify-between mb-12 md:mb-20">
+    <a href="/" class="mono text-sm tracking-[0.3em] uppercase text-neutral-300 hover:text-white transition">
+      swarnav.tech
+    </a>
+    <nav class="mono text-xs md:text-sm uppercase tracking-[0.24em] text-neutral-400">
+      <div class="flex items-center gap-4 md:gap-6">
+        <a href="/" class="text-white">Home</a>
+        <a href="/now.html" class="hover:text-white transition">Now</a>
+        <a href="/log.html" class="hover:text-white transition">Log</a>
+      </div>
+    </nav>
+  </header>
 
-<!-- HERO -->
-<section class="mb-28">
+  <section class="rise mb-16 md:mb-20">
+    <p class="mono text-xs md:text-sm uppercase tracking-[0.32em] text-amber-200/70 mb-6">
+      Systems, tooling, AI
+    </p>
 
-  <h1 class="text-4xl md:text-5xl font-semibold tracking-tight mb-6">
-    Swarnav Baruah
-  </h1>
+    <h1 class="text-5xl md:text-7xl font-bold tracking-[-0.05em] leading-[0.94] max-w-4xl mb-6">
+      I build quiet, resilient internet machinery.
+    </h1>
 
-  <p class="text-xl text-neutral-400 mb-8">
-    DevOps Engineer
-  </p>
+    <p class="text-lg md:text-2xl text-neutral-300 max-w-3xl mb-5 leading-8 md:leading-10">
+      I work across infrastructure, internal tooling, and the odd bit of AI-driven experimentation.
+    </p>
 
-  <p class="text-2xl font-medium mb-6 max-w-xl">
-    I keep complex systems boring.
-  </p>
+    <p id="rotating" class="mono text-sm md:text-base text-amber-200 fade mb-10">
+      Shipping calm systems beats dramatic architecture.
+    </p>
 
-  <p id="rotating" class="text-neutral-500 text-lg fade max-w-xl">
-    Complexity is a liability.
-  </p>
+    <div class="border-t rule pt-6 grid md:grid-cols-3 gap-6 text-sm md:text-base">
+      <div>
+        <p class="mono text-neutral-500 mb-2">Focus</p>
+        <p class="text-neutral-200">Infra that stays understandable at 3 a.m.</p>
+      </div>
+      <div>
+        <p class="mono text-neutral-500 mb-2">Current mode</p>
+        <p class="text-neutral-200">Linux, Neovim, terminals, and agents doing useful work.</p>
+      </div>
+      <div>
+        <p class="mono text-neutral-500 mb-2">Browse</p>
+        <p class="text-neutral-200">
+          <a href="/now.html" class="text-amber-200 hover:text-white transition">What I am using now</a><br />
+          <a href="/log.html" class="text-orange-200 hover:text-white transition">Things worth reading</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-  <p class="text-neutral-500 text-lg mt-6 max-w-xl">
-    I enjoy tinkering with Linux, Neovim, and AI —
-    usually optimizing something that wasn’t broken.
-  </p>
-
-</section>
-
-<!-- LOGS -->
-<section class="mb-28">
-
-  <h2 class="text-xs uppercase tracking-[0.3em] text-neutral-500 mb-8">
-    Logs
-  </h2>
-
-  <div class="space-y-8">
-
-    <div class="hover-shift">
-      <a href="#" class="text-lg font-medium">
-        Why Most Alerts Are Misconfigured
-      </a>
-      <p class="text-neutral-500 text-sm mt-1">
-        Jan 2026 · Placeholder
+  <section class="grid md:grid-cols-2 gap-10 mb-16 border-t rule pt-10">
+    <div>
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-400 mb-4">
+        Working Style
+      </p>
+      <p class="text-neutral-300 leading-7">
+        I like systems that explain themselves: small moving parts, sharp observability, and failure modes that are boring on purpose.
       </p>
     </div>
 
-    <div class="hover-shift">
-      <a href="#" class="text-lg font-medium">
-        Kafka Is Usually Not the Problem
-      </a>
-      <p class="text-neutral-500 text-sm mt-1">
-        Feb 2026 · Placeholder
+    <div>
+      <p class="mono text-xs uppercase tracking-[0.28em] text-neutral-400 mb-4">
+        Off The Clock
+      </p>
+      <p class="text-neutral-300 leading-7">
+        Usually tuning my editor, testing some new terminal workflow, screaming my lungs out at Barca and checking out speakeasies.
       </p>
     </div>
+  </section>
 
-  </div>
+  <section class="mb-16 border-t rule pt-10">
+    <div class="flex items-end justify-between gap-4 mb-8">
+      <div>
+        <p class="mono text-xs uppercase tracking-[0.3em] text-neutral-400 mb-3">
+          Recent Log
+        </p>
+        <h2 class="text-2xl md:text-3xl font-semibold tracking-[-0.03em]">
+          A place for saved links, essays, and ideas worth revisiting.
+        </h2>
+      </div>
+      <a href="/log.html" class="mono text-xs uppercase tracking-[0.28em] text-amber-200 hover:text-white transition">
+        Open Log
+      </a>
+    </div>
 
-</section>
+    <div class="space-y-6">
+      <a href="/log.html" class="block border-b rule pb-6 hover:opacity-100 opacity-90 transition">
+        <p class="mono text-xs uppercase tracking-[0.28em] text-amber-200/80 mb-3">Reading</p>
+        <p class="text-xl text-neutral-100 mb-2">Essays and technical posts</p>
+        <p class="text-neutral-400">A running list of links I want to keep close.</p>
+      </a>
 
-<footer class="border-t border-neutral-800 pt-8 text-neutral-600 text-sm">
-  Reliability, without the theatrics.
-</footer>
+      <a href="/now.html" class="block border-b rule pb-6 hover:opacity-100 opacity-90 transition">
+        <p class="mono text-xs uppercase tracking-[0.28em] text-amber-200/80 mb-3">Now</p>
+        <p class="text-xl text-neutral-100 mb-2">Current tools and active threads</p>
+        <p class="text-neutral-400">What I am using and what has my attention lately.</p>
+      </a>
+    </div>
+  </section>
+
+  <footer class="mono text-xs md:text-sm uppercase tracking-[0.24em] text-neutral-500 border-t border-white/10 pt-6">
+    Reliable systems, cleaner edges.
+  </footer>
+</main>
 
 <script>
 const lines = [
-  "Complexity is a liability.",
-  "Boring scales.",
-  "Hope is not a monitoring strategy.",
-  "Every system fails. Design accordingly.",
-  "Distributed systems are trust issues."
+  "Shipping calm systems beats dramatic architecture.",
+  "Useful automation should feel almost invisible.",
+  "Good tooling removes panic before it starts.",
+  "Most complexity is just deferred cleanup.",
+  "The best ops work leaves very little theater behind."
 ];
 
 const el = document.getElementById("rotating");
@@ -117,10 +203,8 @@ setInterval(() => {
     index = (index + 1) % lines.length;
     el.textContent = lines[index];
     el.style.opacity = 1;
-  }, 300);
-}, 4000);
+  }, 220);
+}, 3600);
 </script>
-
 </body>
 </html>
-
