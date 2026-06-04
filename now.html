@@ -27,6 +27,7 @@
       radial-gradient(circle at 78% 18%, rgba(198, 93, 65, 0.14), transparent 24%),
       linear-gradient(180deg, #12100d 0%, #171411 45%, #0f0d0b 100%);
     min-height: 100vh;
+    transition: background 0.25s ease, color 0.25s ease;
   }
 
   .mono {
@@ -43,6 +44,75 @@
   .rule {
     border-color: rgba(255, 255, 255, 0.1);
   }
+
+  .theme-toggle {
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: #d4d4d4;
+    padding: 0.45rem 0.7rem;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .theme-toggle:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.32);
+  }
+
+  html[data-theme="light"] body {
+    color: #14191d;
+    background:
+      linear-gradient(rgba(25, 29, 31, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(25, 29, 31, 0.035) 1px, transparent 1px),
+      radial-gradient(circle at top left, rgba(166, 142, 72, 0.16), transparent 30%),
+      radial-gradient(circle at 78% 18%, rgba(196, 111, 86, 0.10), transparent 26%),
+      linear-gradient(180deg, #eee7d6 0%, #f3eee7 45%, #f8f7f3 100%);
+    background-size: 32px 32px, 32px 32px, auto, auto, auto;
+  }
+
+  html[data-theme="light"] .rule {
+    border-color: rgba(20, 25, 29, 0.12);
+  }
+
+  html[data-theme="light"] .theme-toggle {
+    color: #545454;
+    border-color: rgba(20, 25, 29, 0.18);
+    background: rgba(255, 255, 255, 0.24);
+  }
+
+  html[data-theme="light"] .theme-toggle:hover {
+    color: #15191c;
+    border-color: rgba(20, 25, 29, 0.34);
+  }
+
+  html[data-theme="light"] .text-white,
+  html[data-theme="light"] .text-neutral-100,
+  html[data-theme="light"] .text-neutral-200 {
+    color: #14191d !important;
+  }
+
+  html[data-theme="light"] .hover\:text-white:hover {
+    color: #14191d !important;
+  }
+
+  html[data-theme="light"] .border-white\/10 {
+    border-color: rgba(20, 25, 29, 0.12) !important;
+  }
+
+  html[data-theme="light"] .text-neutral-300 {
+    color: #3f3f46 !important;
+  }
+
+  html[data-theme="light"] .text-neutral-400 {
+    color: #71717a !important;
+  }
+
+  html[data-theme="light"] .text-neutral-500 {
+    color: #8a8a8a !important;
+  }
+
+  html[data-theme="light"] .text-amber-200,
+  html[data-theme="light"] .text-amber-200\/70 {
+    color: #8a6f12 !important;
+  }
 </style>
 </head>
 
@@ -57,6 +127,9 @@
         <a href="/" class="hover:text-white transition">Home</a>
         <a href="/now.html" class="text-white">Now</a>
         <a href="/log.html" class="hover:text-white transition">Log</a>
+        <button type="button" data-theme-toggle class="theme-toggle rounded-full uppercase tracking-[0.2em]">
+          Light
+        </button>
       </div>
     </nav>
   </header>
@@ -110,5 +183,6 @@
     Updated occasionally.
   </footer>
 </main>
+<script src="/site.js" defer></script>
 </body>
 </html>
